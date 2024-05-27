@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.content{
+    display: flex;
+    justify-content: space-between;
+    background-color: #2525;
+    border-radius: 5px;
+    border: blue 1p solid;
+    padding: 10px;
+}
+
+.content > div {
+    border: black;
+    padding: 10px;
+    border-radius:5px;
+    background-color: white;
+}
