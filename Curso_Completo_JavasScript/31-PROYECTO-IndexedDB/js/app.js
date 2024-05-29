@@ -1,3 +1,4 @@
+let DB;
 
 const mascotaInput = document.querySelector('#mascota');
 const propietarioInput = document.querySelector('#propietario');
@@ -18,6 +19,21 @@ const heading = document.querySelector('#administra');
 
 
 let editando = false;
+
+
+
+// creando indexedDB
+
+// llamamos la funcion la cual esta creada al final del codigo
+window.onload= ()=>{
+    eventListeners();
+
+    crearDB();
+
+}
+
+
+
 
 
 // Eventos
@@ -196,7 +212,7 @@ function nuevaCita(e) {
         editando = false;
 
     } else {
-        // Nuevo Registrando
+        // Nuevo Registro 
 
         // Generar un ID único
         citaObj.id = Date.now();
@@ -204,8 +220,28 @@ function nuevaCita(e) {
         // Añade la nueva cita
         administrarCitas.agregarCita({...citaObj});
 
-        // Mostrar mensaje de que todo esta bien...
-        ui.imprimirAlerta('Se agregó correctamente')
+
+
+            // insertando registro en IndexedDB 
+
+            const transaction = DB.transaction(['citas'],'readwrite')   // se agrega la DB ya declarada, ,luego se pasa el nombre declarado de citas y se agrega la palabra clave readwrite par que el registro de agg a la base de datos          
+
+            const objectStore = transaction.objectStore('citas');
+            objectStore.add(citaObj)
+
+        // add to the DB
+            transaction.oncomplete = function () {
+                console.log('cita agregada');
+                
+
+            // Mostrar mensaje de que todo esta bien...
+            ui.imprimirAlerta('Se agregó correctamente')
+            }
+
+
+
+
+
     }
 
 
@@ -229,6 +265,11 @@ function reiniciarObjeto() {
     citaObj.hora = '';
     citaObj.sintomas = '';
 }
+
+
+
+
+
 
 
 function eliminarCita(id) {
@@ -262,4 +303,48 @@ function cargarEdicion(cita) {
 
     editando = true;
 
+}
+
+// function que crea el uso de la base de datos en el browser 
+
+function crearDB() {
+    // creando la base de datos v, 1.0
+    const crearDB = window.indexedDB.open('citas',1) // nombre asignado citas, version 1
+    // error
+    crearDB.onerror = function () { // Usamos onerror para demarcar un error en el codigo 
+        console.log('Hubo un error');
+    }
+    // no error
+
+    crearDB.onsuccess = function () { // onsuccess para demostrar que la informacion fue creada con exito 
+
+            DB = crearDB.result;
+    }
+
+    // Definimos el Schema 
+    crearDB.onupgradeneeded = function (e) {
+        const db = e.target.result;
+
+        if (!db.objectStoreNames.contains('citas')) {
+            db.createObjectStore('citas',{
+                    keyPath:'id',
+                    autoIncrement: true
+                })
+        }
+        // const objectStore = db.createObjectStore('citas',{
+        //     keyPath:'id',
+        //     autoIncrement: true
+        // });
+    
+    // Definir todas las columnas
+    objectStore.createIndex('mascota','mascota',{unique:false});
+    objectStore.createIndex('propietario','propietario',{unique:false});
+    objectStore.createIndex('telefono','telefono',{unique:false});
+    objectStore.createIndex('fecha','fecha',{unique:false});
+    objectStore.createIndex('hora','hora',{unique:false});
+    objectStore.createIndex('sintomas','sintomas',{unique:false});
+    objectStore.createIndex('id','id',{unique:false});
+
+    console.log('DB creada y lista ');
+    }
 }
