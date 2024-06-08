@@ -113,23 +113,30 @@
 // Las clases no reciben paramaetros, reciben el metodo constructor, el cual recibe las propiedades
 
 class Animal {
-   constructor(nombre, genero) {
+   constructor(nombre, genero,size) {
       // Atributos 
       this.nombre = nombre;
       this.genero = genero;
+      this.size = size;
    }
 
 
 // Metodos 
 sonar(){
-   console.log("I am making sounds cuz I am Alive!!");
+   console.log(" mi sonido es contagioso");
 }
 
 
 saludar(){
    console.log(`i am ${this.nombre}`);
 }
+yosoy(){
+   console.log(`i am ${this.genero}`);
+}
 
+talla(){
+   console.log(`i am ${this.size}`);
+}
 
 }
 
@@ -139,37 +146,52 @@ saludar(){
  class Perro extends Animal{
    constructor(nombre,genero, size){
       // Manda a llamar al construsctor padre 
-      super(nombre, genero)
-      this.size=size
+      super(nombre, genero,size)
+      
    }
 
 
    sonar(){
-      console.log("I am a Wolf and my sounds is quite similiar to a dog, but savage! ");
+      console.log("Mi sonido es sutil y agudo ");
    }
 
    ladrar(){
-      console.log("WOF WOFF");
+      console.log("WOUUF WOFF");
+   }
+
+   talla(){
+      console.log(`i am ${this.size}`);
    }
 
    // un metodo estatico se puede ejecutar sin encesidad de instanciar la clase .
 
       static queEres(){
-         console.log("lorem impsum, impsum lorem, magintude");
+         console.log("esto es una prueba de una Class Animal haciendo polimorfismo con las Clase Perro");
       }
+
+      
  }
 
- Perro.queEres()
+ Perro.queEres() // se declara el method static 
 
-const lobo = new Animal("Pacho","Marica")
-scooby = new Perro("Scooby","Cigarron");
+const gato = new Animal("Sofia","Gata Calica",'20 Cm')
+const sky = new Perro("Sky Perez","criolla","60CM");
 
 
-   console.log(scooby);   
-   scooby.sonar()
-   scooby.ladrar()
-   scooby.saludar()
-   console.log(lobo);
-   lobo.sonar()
-   lobo.saludar()
+
+   console.log(sky);   
+   sky.sonar()
+   sky.ladrar()
+   sky.saludar()
+   sky.yosoy()
+   sky.talla()
+
+ console.log('-----------------------------------------------------------------------------');
+
+
+   console.log(gato);
+   gato.sonar()
+   gato.saludar()
+   gato.yosoy()
+   gato.talla()
    // JS trabaja la POO con prototipos no con clases, 
