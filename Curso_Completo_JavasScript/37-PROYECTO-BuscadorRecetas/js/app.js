@@ -1,7 +1,3 @@
-// const { disconnect } = require("process");
-
-// const { title } = require("process");
-
 //iniciando el project con una funcion 
 function iniciarApp () {
     const resultado = document.querySelector('#resultado')
