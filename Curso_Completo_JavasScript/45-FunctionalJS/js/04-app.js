@@ -8,3 +8,14 @@ const carrito = [
     { nombre: 'Bocinas', precio: 300},
     { nombre: 'Laptop', precio: 800},
 ];
+
+
+
+// fn  
+const mayor400 = producto =>{
+    return producto.precio>799;
+}
+
+const resultado =carrito.filter(mayor400)
+console.log(resultado);
+

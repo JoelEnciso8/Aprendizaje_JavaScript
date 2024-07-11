@@ -72,8 +72,8 @@ function mostrarAlerta(mensaje) {
 
 }
 
-
-function buscarImagenes() {
+//agregando async await 
+async function buscarImagenes() {
     const termino = document.querySelector('#termino').value
     // API key
     const key = '44581309-daf505da25cc70aed60990afb';
@@ -85,13 +85,26 @@ function buscarImagenes() {
     
     // add fetch to look up in our API 
 
-    fetch(url)
-    .then(respuesta =>respuesta.json())
-    .then(resultado=> {
+    // fetch(url)
+    // .then(respuesta =>respuesta.json())
+    // .then(resultado=> {
+    //     totalPaginas = calcularPaginas(resultado.totalHits)
+    //     mostrarImagenes(resultado.hits)
+    // })
+    // // .catch(console.log('Error en la API'))
+
+
+    try {
+    
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
         totalPaginas = calcularPaginas(resultado.totalHits)
         mostrarImagenes(resultado.hits)
-    })
-    // .catch(console.log('Error en la API'))
+    } catch (error) {
+     console.log(error);   
+    }
+
+
 
 }
 
