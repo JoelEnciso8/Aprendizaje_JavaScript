@@ -29,15 +29,16 @@ const funcionesPersona = {
 //Add fn personas a la  Class persona
 
 Object.assign(Persona.prototype,funcionesPersona)
+Object.assign(Cliente.prototype,funcionesPersona)
+
+
 
 //llamamos la class
-const persona = new Persona('Owen','correo@correo.com');
-const cliente = new Cliente('Joel','correo@correo.com','sofCodigo');
-
+const cliente = new Persona('Owen','correo@correo.com');
 
 //llamar en console 
 console.log(cliente);
 cliente.mostrarInformacion()
 cliente.mostrarNombre()
 
-console.log(persona);
+

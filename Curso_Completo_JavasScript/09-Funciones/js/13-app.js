@@ -2,10 +2,10 @@
 
 const reproductor = {
 
-    reproducir: id =>console.log(`Reproduciendo cancion... ${id}`),
-    pausa: ()=>console.log(`Pausando...`),
-    borrar: ()=>console.log(`Borrando Cancion..`),
-    creandoPlayList:(elem)=>console.log(`creando la PlayList ${elem} `),
+    reproducir: id =>console.log(`Reproduciendo cancion... ${id}`), //Arr fn to create la reproduccion 
+    pausa: ()=>console.log(`Pausando...`),//Arr fn to create la pausa
+    borrar: ()=>console.log(`Borrando Cancion..`),//Arr fn to create borrar
+    creandoPlayList:(elem)=>console.log(`creando la PlayList ${elem} `), 
 
     set nuevaCancion(cancion){
         this.cancion = cancion;
