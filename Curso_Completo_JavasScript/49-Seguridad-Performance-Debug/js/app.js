@@ -37,7 +37,18 @@ function consultarCriptomonedas() {
 // llena el select 
 function selectCriptomonedas(criptomonedas) {
 
-    criptomonedas.forEach( cripto => {
+    // conocer cuanto tarda en ejecutarse el codigo  performance.now()
+    const inicio = performance.now()
+for (let i = 0; i < criptomonedas.length; i++) {
+
+    const { FullName, Name } = criptomonedas[i].CoinInfo;
+    const option = document.createElement('option');
+    option.value = Name;
+    option.textContent = FullName;
+    // insertar el HTML
+    criptomonedasSelect.appendChild(option);
+}
+/*criptomonedas.forEach( cripto => {
         const { FullName, Name } = cripto.CoinInfo;
         const option = document.createElement('option');
         option.value = Name;
@@ -45,6 +56,10 @@ function selectCriptomonedas(criptomonedas) {
         // insertar el HTML
         criptomonedasSelect.appendChild(option);
     });
+    */ 
+    const fin = performance.now()
+    console.log(fin-inicio);
+
 
 }
 
@@ -111,7 +126,7 @@ function mostrarCotizacionHTML(cotizacion) {
     const  { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE } = cotizacion;
 
 
-    debugger;
+    // debugger;
 
     const precio = document.createElement('p');
     precio.classList.add('precio');

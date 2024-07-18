@@ -8,3 +8,7 @@ class Persona {
 }
 
 const persona = new Persona('Joel','email@email.com')
+
+const input = () =>{
+    throw error('')
+}

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Cliente Joel Enciso 1`] = `
+{
+  "balance": 900,
+  "nombre": "Joel Steve Enciso Bravo",
+  "tipo": "Premium",
+}
+`;
