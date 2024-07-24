@@ -1,0 +1,20 @@
+//- todo proyecto web inicia con el DOCTYPE
+//- PUG TIENE APERTURA NO CIERRE
+//- la identacion del codigo ES IMPORTANTE
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Playwrite+AR&display=swap' rel='stylesheet')
+        link(rel="stylesheet", href="/css/bootstrap.css")
+        link(rel="stylesheet", href="/css/style.css")
+        body 
+        //- pug utiliza los bloques, includes
+        include header 
+        block contenido 
+        include footer 
+
