@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon index.js"
   },
-  "type": "module",
+  "type": "module" ,
   "author": "Joel Steve Enciso Bravo",
   "license": "ISC",
   "description": "",

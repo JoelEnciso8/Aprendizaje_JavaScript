@@ -5,5 +5,9 @@
 extends ./layout/index
 block contenido
         main.container.mt-5
-            .row 
-             h1 #{pagina}
+            .row
+                .col-md-5 
+                    img(src="img/nosotros.jpg",alt="img sobre nosotros", class="img-fluid")
+                .col-md-7
+                     h1 #{pagina}
+        
