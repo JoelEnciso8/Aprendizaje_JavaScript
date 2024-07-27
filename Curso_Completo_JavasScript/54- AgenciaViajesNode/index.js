@@ -1,11 +1,19 @@
-// extrayedno express del package json
 import express from "express";
 import router from "./routes/index.js";
+import db from "./config/db.js";
+// Importamos las carpetas que creamos 
  
 // Llamamos a express para que funcione en nuestro proyecto 
 const app = express();
+
+
+// para conectar la base de datos
+db.authenticate()
+          .then(() =>console.log('Base de datos conectada'))
+          .catch(error => console.log(error))
+
  
-// Definir puerto con variable de entorno, nos asigna node de  manera autimatica, cuando pasemos el proyecto a produccion esta variable de entorno tomara fuerza
+// Definir puerto con   variable de entorno, nos asigna node de  manera autimatica, cuando pasemos el proyecto a produccion esta variable de entorno tomara fuerza
 const port = process.env.PORT || 4000;
  
 // Habilitar PUG

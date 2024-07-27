@@ -1,0 +1,26 @@
+{
+  "name": "52-testing-cypress",
+  "version": "1.0.0",
+  "description": "aprendiendo Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "cy:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoelEnciso8/Aprendizaje_JavaScript.git#main"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Joel Enciso Bravo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoelEnciso8/Aprendizaje_JavaScript/issues"
+  },
+  "homepage": "https://github.com/JoelEnciso8/Aprendizaje_JavaScript/tree/main#readme",
+  "devDependencies": {
+    "cypress": "^13.13.1"
+  }
+}
