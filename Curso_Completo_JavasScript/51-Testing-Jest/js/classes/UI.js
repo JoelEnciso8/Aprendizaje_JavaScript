@@ -92,13 +92,10 @@ class UI {
    }
 
    textoHeading(citas) {
-        if(citas.length > 0 && citas !== null ) {
+        if(citas.length > 0 ) {
             heading.textContent = 'Administra tus Citas '
         } else {
-            if(heading){
-                heading.textContent = 'No hay Citas, comienza creando una'
-
-            }
+            heading.textContent = 'No hay Citas, comienza creando una'
         }
     }
 

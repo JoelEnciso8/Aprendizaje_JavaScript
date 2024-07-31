@@ -124,8 +124,3 @@ export function cargarEdicion(cita) {
     editando = true;
 
 }
-
-
-function suma(a,b) {
-    return a +b
-}
